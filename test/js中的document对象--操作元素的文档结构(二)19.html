@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>js中的document对象操作文档结构(二)</title>
+		<meta charset="UTF-8"/>
+		<script type="text/javascript">
+			function testOper(){
+				//获取元素对象
+				var showdiv=document.getElementById("showdiv");
+				//创建input元素对象
+				var inp=document.createElement("input");
+				inp.type="file";
+				//创建按钮元素对象
+				var btn=document.createElement("input");
+				btn.type="button";
+				btn.value="删除";
+				btn.onclick=function(){
+					showdiv.removeChild(inp);
+					showdiv.removeChild(btn);
+					showdiv.removeChild(br);
+				}
+				//创建换行符对象
+				var br=document.createElement("br");
+				//将创建的元素存放到div中
+				showdiv.appendChild(inp);
+				showdiv.appendChild(btn);
+				showdiv.appendChild(br);
+			}
+		</script>
+	</head>
+	<body>
+		<h3>js中的document对象操作文档结构(二)</h3>
+		<input type="button" name="" id="" value="上传" onclick="testOper();"/>
+		<hr />
+		<div id="showdiv">
+			
+		</div>
+	</body>
+</html>

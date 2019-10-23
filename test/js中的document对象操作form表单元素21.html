@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<title>js中的document对象操作form表单元素</title>
+		<meta charset="UTF-8"/>
+		<script type="text/javascript">
+			function testCheckBox(){
+				//获取所有的多选元素对象数组
+				var favs=document.getElementsByName("fav");
+				//遍历数组
+				for (var i=0;i<favs.length;i++) {
+					if(favs[i].checked){
+						//操作多选框，被选中状态下在js中checked属性值为true;未选中为false
+						alert(favs[i].value+":"+favs[i].checked);
+					}
+				}
+			}
+			//全选
+			function testCheckBox2(){
+				var favs=document.getElementsByName("fav");
+				for (var i=0;i<favs.length;i++) {
+					favs[i].checked=true;
+				}
+			}
+			
+			//反选
+			function testCheckBox3(){
+				var favs=document.getElementsByName("fav");
+				for (var i = 0; i < favs.length; i++) {
+					favs[i].checked=!favs[i].checked;
+				}
+			}
+			
+			//操作下拉框 onchange()搭配下拉框
+			function testSel(){
+				//获取下拉框对象
+				var sel=document.getElementById("address");
+//				alert(sel.value);
+				//获取option对象集合
+				var os=sel.options;
+				for (var i = 0; i < os.length; i++) {
+					if(os[i].selected){//下拉框对象中的属性select(属于option)
+						alert(os[i].value+":"+os[i].text);	
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h3>js中的document对象操作form表单元素</h3>
+		<hr />
+		<b>操作多选框</b><br /><br />
+		<input type="checkbox" name="fav" id="fav" value="1" />做我老婆好不好<br />
+		<input type="checkbox" name="fav" id="fav" value="2" />李白<br />
+		<input type="checkbox" name="fav" id="fav" value="3" />稻香<br />
+		<input type="checkbox" name="fav" id="fav" value="4" />faded<br />
+		<input type="checkbox" name="fav" id="fav" value="5" />给我一首歌的时间<br />
+		<input type="checkbox" name="fav" id="fav" value="6" />好心分手<br /><br /><br />
+		<input type="button" name="" id="" value="播放" onclick="testCheckBox();"/>
+		<input type="button" name="" id="" value="全选" onclick="testCheckBox2();"/>
+		<input type="button" name="" id="" value="反选" onclick="testCheckBox3();"/>
+		<hr />
+		<select name="" id="address" onchange="testSel();">
+			<option value="0">--请选择--</option>
+			<option value="1">西安</option>
+			<option value="2">深圳</option>
+			<option value="3">上海</option>
+		</select>
+	</body>
+</html>

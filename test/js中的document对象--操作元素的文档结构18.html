@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>js中的document对象操作文档结构</title>
+		<meta charset="UTF-8"/>
+		<script type="text/javascript">
+			//追加
+			function testAdd(){
+				//获取元素对象
+				var showdiv=document.getElementById("showdiv");
+				//给div追加上传按钮 给子节点加上div
+				showdiv.innerHTML=showdiv.innerHTML+"<div><input type='file' value='' /><input type='button' value='删除' onclick='delLine(this);'/></div>";				
+			}
+			//删除一行
+			function delLine(btn){
+				//获取父级div
+				var showdiv=document.getElementById("showdiv");
+				//获取父节点，通过子节点获取父节点
+				var cdiv=btn.parentNode;
+				//父div删除子div
+				showdiv.removeChild(cdiv);
+			}
+		</script>
+	</head>
+	<body>
+		<h3>js中的document对象擦走哦文档结构</h3>
+		<input type="button" name="" id="" value="上传" onclick="testAdd()"/>
+		<hr />
+		<div id="showdiv">
+			
+		</div>
+	
+	</body>
+</html>
